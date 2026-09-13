@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "doppelgangerz",
+  "version": "${version}",
+  "name": "DoppelgangerZ",
+  "description": "Uma copia do jogador nasce a partir de um replay detalhado de suas acoes e gradualmente desenvolve comportamento independente.",
+  "authors": ["Voce"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.doppelgangerz.DoppelgangerZ"],
+    "client": ["com.doppelgangerz.client.DoppelgangerZClient"]
+  },
+  "mixins": ["doppelgangerz.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.11.0",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.doppelgangerz.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BlockItemMixin"
+  ],
+  "server": [
+    "ServerPlayerInteractionManagerMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
