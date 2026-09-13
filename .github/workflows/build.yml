@@ -5,6 +5,10 @@ on:
     branches: [ "main", "master" ]
   workflow_dispatch: {}
 
+defaults:
+  run:
+    working-directory: doppelgangerz-fabric
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: DoppelgangerZ-jar
-          path: build/libs/*.jar
+          path: doppelgangerz-fabric/build/libs/*.jar
