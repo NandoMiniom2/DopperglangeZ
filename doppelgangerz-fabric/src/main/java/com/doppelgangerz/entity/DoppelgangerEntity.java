@@ -13,21 +13,12 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Entidade central do mod (Secoes 6, 7 e 9 do documento de especificacao).
- *
- * Nesta Beta (nucleo): comeca com a skin do jogador e reproduz fisicamente
- * (sem teleporte) o script de acoes gravado. Corrupcao visual progressiva,
- * personalidade, memoria e decisao autonoma (Secoes 10+) ficam para as
- * proximas iteracoes - ver README_BETA.md.
- */
 public class DoppelgangerEntity extends PathAwareEntity {
 
     private GameProfile copiedProfile;
@@ -93,22 +84,5 @@ public class DoppelgangerEntity extends PathAwareEntity {
 
     public boolean hasReplayFinished() {
         return replayScript.isEmpty() || replayIndex >= replayScript.size();
-    }
-
-    @Override
-    protected void writeCustomDataToTag(CompoundTag tag) {
-        super.writeCustomDataToTag(tag);
-        if (copiedProfile != null && copiedProfile.getId() != null) {
-            tag.putUuid("CopiedPlayer", copiedProfile.getId());
-        }
-        tag.putInt("ReplayIndex", replayIndex);
-    }
-
-    @Override
-    protected void readCustomDataFromTag(CompoundTag tag) {
-        super.readCustomDataFromTag(tag);
-        if (tag.contains("ReplayIndex")) {
-            replayIndex = tag.getInt("ReplayIndex");
-        }
     }
 }
